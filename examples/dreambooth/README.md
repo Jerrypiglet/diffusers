@@ -19,8 +19,18 @@ cd diffusers
 pip install -e .
 ```
 
+[Rui] Locally on 4090 machine:
+
+``` bash
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu121
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu121 # 0.0.24
+pip install -r requirements_4090.txt
+```
+
 Then cd in the example folder and run
+
 ```bash
+
 pip install -r requirements.txt
 ```
 
@@ -256,7 +266,7 @@ accelerate launch train_dreambooth.py \
   --use_8bit_adam \
   --gradient_checkpointing \
   --learning_rate=2e-6 \
-  --lr_scheduler="constant" \
+  --lr_scheduler="constant" \ 
   --lr_warmup_steps=0 \
   --num_class_images=200 \
   --max_train_steps=800 \

@@ -928,7 +928,7 @@ def main(args):
     text_encoder = text_encoder_cls.from_pretrained(
         args.pretrained_model_name_or_path, subfolder="text_encoder", revision=args.revision, variant=args.variant
     )
-
+    
     if model_has_vae(args):
         vae = AutoencoderKL.from_pretrained(
             args.pretrained_model_name_or_path, subfolder="vae", revision=args.revision, variant=args.variant
@@ -1146,7 +1146,7 @@ def main(args):
     # Move vae and text_encoder to device and cast to weight_dtype
     if vae is not None:
         vae.to(accelerator.device, dtype=weight_dtype)
-
+        
     if not args.train_text_encoder and text_encoder is not None:
         text_encoder.to(accelerator.device, dtype=weight_dtype)
 

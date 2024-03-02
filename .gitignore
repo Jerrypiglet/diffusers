@@ -176,3 +176,9 @@ tags
 
 # wandb
 wandb
+
+# rui
+class_images
+*-bucket.png
+results/
+logss_
